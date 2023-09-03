@@ -38,9 +38,24 @@ class ExampleUnitTest {
     }
 
     @Test
-    fun comparar()= runTest{
+    fun comparar1()= runTest{
 
         val resultado=comparador.comparar("a","a")
         assertEquals(resultado,"Ambos textos son iguales")
     }
+
+    @Test
+    fun comparar2()= runTest{
+
+        val resultado=comparador.comparar("1","a")
+        assertEquals(resultado,"Ambos textos son diferentes")
+    }
+
+    @Test
+    fun comparar3()= runTest{
+
+        val resultado=comparador.comparar("","a")
+        assertEquals(resultado,"No puede haber campos vacios")
+    }
+
 }
