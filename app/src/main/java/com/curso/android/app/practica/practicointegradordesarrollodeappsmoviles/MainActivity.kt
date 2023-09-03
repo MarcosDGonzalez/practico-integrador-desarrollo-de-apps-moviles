@@ -12,30 +12,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val comp = Comparador()
         val texto1 = findViewById<EditText>(R.id.EditText1)
         val texto2 = findViewById<EditText>(R.id.EditText2)
         val resultado=findViewById<TextView>(R.id.resultado)
 
         findViewById<Button>(R.id.button)
             .setOnClickListener {
-                val text1 = texto1.text
-                if (text1.isNotEmpty()){
-                    val text2 = texto2.text
-                    if (text2.isNotEmpty()){
-                        if (text1.toString() ==text2.toString()){
-                            resultado.text="Ambos textos son iguales"
-                        }
-                        else{
-                            resultado.text="Ambos textos son diferentes"
-                        }
-                        }
-                    else{
-                        resultado.text="No puede haber campos vacios"
-                    }
-                }
-                else{
-                    resultado.text="No puede haber campos vacios"
-                }
+                resultado.text=comp.comparar(texto1.text.toString(), texto2.text.toString())
 
             }
 
